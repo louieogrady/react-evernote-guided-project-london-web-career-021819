@@ -1,23 +1,49 @@
 import React, { Component } from 'react';
 
 class NoteEditor extends Component {
+
+  state = {
+    title: this.props.selectedNote.title,
+    body: this.props.selectedNote.body,
+    selectedNote: this.props.selectedNote
+  }
+
+  // patch note function
+  patchEdit = (selectedNote, event) => {
+    event.persist();
+    event.preventDefault();
+
+    fetch(`http//localhost:3000/api/v1/notes/${this.props.selectedNote.id}`, {
+      method: "PATCH",
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        title: this.state.title,
+        body: this.state.body
+      })
+    })
+  }
+
+  handleChange = (event) => {
+    // debugger
+    this.setState({
+      [event.target.name]: event.target.value
+    }, () => console.log("state was set"))
+  }
+
+
   render() {
     return (
       <form className="note-editor">
-        <input type="text" name="title" defaultValue={this.props.selectedNote.title}/>
-        <textarea name="body" defaultValue={this.props.selectedNote.body}/>
+        <input type="text" name="title" value={this.state.title} onChange={event => this.handleChange(event)}/>
+        <textarea name="body"  value={this.state.body} onChange={event => this.handleChange(event)}/>
         <div className="button-row">
-          <input className="button" type="submit" value="Save" onClick={(event) => this.props.switchPatchEdit(this.props.selectedNote.id, event.target.name.value, event.target.body.value)}/>
-          <button type="button" onClick={() => this.props.switchNoteEditorRenderCondition()} >Cancel</button>
+          <input className="button" type="submit" value="Save" onClick={() => this.PatchEdit(this.props.selectedNote)}/>
+          <button type="button" onClick={(event) => this.props.switchNoteEditorRenderCondition()} >Cancel</button>
         </div>
       </form>
     );
   }
+
 }
 
 export default NoteEditor;
-
-
-//onSubmit={this.props.patchEdit}
-
-// if we cannot get the value from the event.target - then lets setup state and assign an onchange to the inputs and put the input into state - send that state back to the content container for posting to the api

@@ -16,23 +16,6 @@ class Content extends Component {
     });
   };
 
-  // patch note function
-  patchEdit = (note.id, title, body, event) => {
-    event.persist();
-    event.preventDefault();
-
-    fetch(`http//localhost:3000/api/v1/notes/${note.id}`, {
-      method: "PATCH",
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        id: note.id,
-        x: x,
-
-      })
-    })
-
-  }
-
   renderContent = () => {
 
     const renderCondition = !!this.props.selectedNote
