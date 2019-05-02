@@ -11,6 +11,3 @@ const NoteViewer = (props) => {
 }
 
 export default NoteViewer;
-
-
-// onClick={this.props.switchNoteEditorRenderCondition}

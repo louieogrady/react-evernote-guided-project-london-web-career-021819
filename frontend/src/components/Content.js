@@ -3,13 +3,7 @@ import NoteEditor from './NoteEditor';
 import NoteViewer from './NoteViewer';
 import Instructions from './Instructions';
 
-/*
-  Advice: If you cannot figure out how to get this component to work,
-          move the div and renderContent up into NoteContainer and
-          try to get it to work in the parent first.
-          Then complete the rest of your app before attempting to
-          refactor to get this Content component to work.
-*/
+
 class Content extends Component {
 
   state = {
@@ -22,13 +16,12 @@ class Content extends Component {
     });
   };
 
-
   renderContent = () => {
 
     const renderCondition = !!this.props.selectedNote
 
     if (this.state.noteEditorRenderCondition === true) {
-      return <NoteEditor selectedNote={this.props.selectedNote}/>;
+      return <NoteEditor selectedNote={this.props.selectedNote} switchNoteEditorRenderCondition={this.switchNoteEditorRenderCondition}/>;
     } else if (renderCondition === true) {
       return <NoteViewer selectedNote={this.props.selectedNote} switchNoteEditorRenderCondition={this.switchNoteEditorRenderCondition}/>;
     } else {
@@ -47,3 +40,12 @@ class Content extends Component {
 }
 
 export default Content;
+
+
+/*
+  Advice: If you cannot figure out how to get this component to work,
+          move the div and renderContent up into NoteContainer and
+          try to get it to work in the parent first.
+          Then complete the rest of your app before attempting to
+          refactor to get this Content component to work.
+*/
