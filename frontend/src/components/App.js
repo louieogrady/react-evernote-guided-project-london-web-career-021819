@@ -6,7 +6,7 @@ class App extends Component {
 
   state = {
     notes: [],
-    selectedNote: []
+    selectedNote: null
   }
 
   fetchNotes = () => {
