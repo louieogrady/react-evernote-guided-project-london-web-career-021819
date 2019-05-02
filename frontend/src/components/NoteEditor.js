@@ -5,20 +5,25 @@ class NoteEditor extends Component {
   state = {
     title: this.props.selectedNote.title,
     body: this.props.selectedNote.body,
-    selectedNote: this.props.selectedNote
+    //selectedNote: this.props.selectedNote
   }
 
   // patch note function
-  patchEdit = (selectedNote, event) => {
+  patchEdit = (event) => {
     event.persist();
     event.preventDefault();
 
-    fetch(`http//localhost:3000/api/v1/notes/${this.props.selectedNote.id}`, {
+    fetch(`http://localhost:3000/api/v1/notes/${this.props.selectedNote.id}`, {
       method: "PATCH",
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
+        id: this.props.selectedNote.id,
         title: this.state.title,
-        body: this.state.body
+        body: this.state.body,
+        user: {
+          id: this.props.selectedNote.user.id,
+          name: this.props.selectedNote.name
+        }
       })
     })
   }
@@ -27,7 +32,7 @@ class NoteEditor extends Component {
     // debugger
     this.setState({
       [event.target.name]: event.target.value
-    }, () => console.log("state was set"))
+    })
   }
 
 
@@ -37,7 +42,7 @@ class NoteEditor extends Component {
         <input type="text" name="title" value={this.state.title} onChange={event => this.handleChange(event)}/>
         <textarea name="body"  value={this.state.body} onChange={event => this.handleChange(event)}/>
         <div className="button-row">
-          <input className="button" type="submit" value="Save" onClick={() => this.PatchEdit(this.props.selectedNote)}/>
+          <input className="button" type="submit" value="Save" onClick={(event) => this.PatchEdit(this.props.selectedNote)}/>
           <button type="button" onClick={(event) => this.props.switchNoteEditorRenderCondition()} >Cancel</button>
         </div>
       </form>
