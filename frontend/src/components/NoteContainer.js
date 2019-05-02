@@ -7,7 +7,7 @@ class NoteContainer extends Component {
   render() {
     return (
       <Fragment>
-        <Search />
+        <Search searchInput={this.props.searchInput}/>
         <div className='container'>
           <Sidebar notes={this.props.notes} selectNote={this.props.selectNote} />
           <Content selectedNote={this.props.selectedNote}/>

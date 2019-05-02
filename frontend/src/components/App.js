@@ -6,10 +6,11 @@ class App extends Component {
 
   state = {
     notes: [],
-    selectedNote: null
+    selectedNote: null,
+    searchTerm: null
   }
 
-  // 
+  //
   fetchNotes = () => {
     fetch('http://localhost:3000/api/v1/notes')
     .then(resp => resp.json())
@@ -27,14 +28,24 @@ class App extends Component {
     })
   }
 
+  searchInput = (event) => {
+    this.setState({
+      searchTerm: event.target.value
+    })
+  }
+
+  filteredNotes = () => this.state.notes.filter(note => note.title.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+
   render() {
     return (
       <div className="app">
         <Header />
-        <NoteContainer notes={this.state.notes} selectNote={this.selectNote} selectedNote={this.state.selectedNote}/>
+        <NoteContainer notes={this.state.searchTerm ? this.filteredNotes() : this.state.notes} selectNote={this.selectNote} selectedNote={this.state.selectedNote} searchInput={this.searchInput}/>
       </div>
     );
   }
 }
 
 export default App;
+
+// this.state.searchTerm ? this.filteredNotes : this.state.notes

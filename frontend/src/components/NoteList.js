@@ -13,4 +13,3 @@ class NoteList extends Component {
 }
 
 export default NoteList;
-    //  {this.props.notes.map(note => <NoteItem note={note}      /> )}
