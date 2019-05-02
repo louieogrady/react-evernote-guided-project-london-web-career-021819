@@ -9,7 +9,7 @@ class NoteContainer extends Component {
       <Fragment>
         <Search />
         <div className='container'>
-          <Sidebar />
+          <Sidebar notes={this.props.notes} selectNote={this.props.selectNote} selectedNote={this.props.selectedNote}/>
           <Content />
         </div>
       </Fragment>

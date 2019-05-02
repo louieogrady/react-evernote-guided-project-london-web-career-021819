@@ -15,7 +15,7 @@ class Content extends Component {
     if (false) {
       return <NoteEditor />;
     } else if (false) {
-      return <NoteViewer />;
+      return <NoteViewer selectedNote={this.props.selectedNote}/>;
     } else {
       return <Instructions />;
     }
@@ -31,3 +31,8 @@ class Content extends Component {
 }
 
 export default Content;
+
+//selectedNote={this.props.selectedNote}
+//
+// this.props.selectedNote.title
+// // this.props.selectedNote.body
