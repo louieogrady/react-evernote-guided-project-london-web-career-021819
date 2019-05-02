@@ -12,14 +12,25 @@ import Instructions from './Instructions';
 */
 class Content extends Component {
 
+  state = {
+    noteEditorRenderCondition: false
+  }
+
+  switchNoteEditorRenderCondition = () => {
+    this.setState({
+      noteEditorRenderCondition: !this.state.noteEditorRenderCondition
+    });
+  };
+
+
   renderContent = () => {
 
     const renderCondition = !!this.props.selectedNote
 
-    if (false) {
-      return <NoteEditor />;
+    if (this.state.noteEditorRenderCondition === true) {
+      return <NoteEditor selectedNote={this.props.selectedNote}/>;
     } else if (renderCondition === true) {
-      return <NoteViewer selectedNote={this.props.selectedNote}/>;
+      return <NoteViewer selectedNote={this.props.selectedNote} switchNoteEditorRenderCondition={this.switchNoteEditorRenderCondition}/>;
     } else {
       return <Instructions />;
     }
@@ -32,6 +43,7 @@ class Content extends Component {
       </div>
     );
   }
+
 }
 
 export default Content;

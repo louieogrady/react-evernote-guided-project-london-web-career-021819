@@ -9,6 +9,7 @@ class App extends Component {
     selectedNote: null
   }
 
+  // 
   fetchNotes = () => {
     fetch('http://localhost:3000/api/v1/notes')
     .then(resp => resp.json())
