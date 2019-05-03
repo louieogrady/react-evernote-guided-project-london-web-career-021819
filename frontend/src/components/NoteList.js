@@ -6,7 +6,7 @@ class NoteList extends Component {
     return (
     <ul>
       {/* Render list of notes here... */}
-      {this.props.notes.map(note => <NoteItem note={note} key={note.id} selectNote={this.props.selectNote}    /> )}
+      {this.props.notes.map(note => <NoteItem note={note} key={note.id} selectNote={this.props.selectNote} switchNoteEditorRenderCondition={this.props.switchNoteEditorRenderCondition} selectedNote={this.props.selectedNote}    /> )}
     </ul>
   );
 }

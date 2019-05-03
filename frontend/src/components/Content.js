@@ -6,24 +6,24 @@ import Instructions from './Instructions';
 
 class Content extends Component {
 
-  state = {
-    noteEditorRenderCondition: false
-  }
-
-  switchNoteEditorRenderCondition = () => {
-    this.setState({
-      noteEditorRenderCondition: !this.state.noteEditorRenderCondition
-    });
-  };
+  // state = {
+  //   noteEditorRenderCondition: false
+  // }
+  //
+  // switchNoteEditorRenderCondition = () => {
+  //   this.setState({
+  //     noteEditorRenderCondition: !this.state.noteEditorRenderCondition
+  //   });
+  // };
 
   renderContent = () => {
 
     const renderCondition = !!this.props.selectedNote
 
-    if (this.state.noteEditorRenderCondition === true) {
-      return <NoteEditor selectedNote={this.props.selectedNote} switchNoteEditorRenderCondition={this.switchNoteEditorRenderCondition} renderUpdatedNote={this.props.renderUpdatedNote} />;
+    if (this.props.noteEditorRenderCondition === true) {
+      return <NoteEditor selectedNote={this.props.selectedNote} switchNoteEditorRenderCondition={this.props.switchNoteEditorRenderCondition} renderUpdatedNote={this.props.renderUpdatedNote} />;
     } else if (renderCondition === true) {
-      return <NoteViewer selectedNote={this.props.selectedNote} switchNoteEditorRenderCondition={this.switchNoteEditorRenderCondition}/>;
+      return <NoteViewer selectedNote={this.props.selectedNote} electedNote={this.props.selectedNote} switchNoteEditorRenderCondition={this.props.switchNoteEditorRenderCondition}/>;
     } else {
       return <Instructions />;
     }

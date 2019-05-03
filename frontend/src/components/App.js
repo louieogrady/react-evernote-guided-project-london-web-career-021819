@@ -28,7 +28,7 @@ class App extends Component {
     const newNotes = this.state.notes.map(note => note.id === newNote.id ? note = newNote : note )
 
     this.setState({
-      notes: newNotes,        
+      notes: newNotes,
       selectedNote: newNote   // this adds the newNote into the selectedNote so that when the re-render happens (and the conditional rendering is switched) the new note is shown rather than the old one
     })
 
