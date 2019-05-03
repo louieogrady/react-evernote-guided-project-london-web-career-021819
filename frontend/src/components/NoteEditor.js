@@ -16,28 +16,21 @@ class NoteEditor extends Component {
       method: "PATCH",
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        // id: this.props.selectedNote.id,
         title: this.state.title,
         body: this.state.body,
         user_id: this.props.selectedNote.user.id
-        // user: {
-        //   id: this.props.selectedNote.user.id,
-        //   name: this.props.selectedNote.name
-        // }
       })
-    }).then(note => note.json())
+    })
+    .then(note => note.json())
     .then(newNote => this.props.renderUpdatedNote(newNote))
+    .then(this.props.switchNoteEditorRenderCondition)
   }
-
-  // .then(note => note.json())
-  // .then(newNote => this.props.renderNewNote(newNote))
 
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
     })
   }
-
 
   render() {
     return (

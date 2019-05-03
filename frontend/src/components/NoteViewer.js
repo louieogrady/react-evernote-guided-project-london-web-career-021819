@@ -5,7 +5,7 @@ const NoteViewer = (props) => {
     <Fragment >
       <h2>{props.selectedNote.title}</h2>
       <p>{props.selectedNote.body}</p>
-      <button onClick={() => props.switchNoteEditorRenderCondition()}>Edit</button>
+      <button onClick={props.switchNoteEditorRenderCondition}>Edit</button>
     </Fragment>
   );
 }
