@@ -10,6 +10,7 @@ class NoteEditor extends Component {
 
   // patch note function
   patchEdit = (event) => {
+    debugger
     event.persist();
     event.preventDefault();
 
@@ -25,11 +26,15 @@ class NoteEditor extends Component {
           name: this.props.selectedNote.name
         }
       })
-    })
+    }).then(note => note.json())
+    .then(newNote => this.props.renderUpdatedNote(newNote))
+
   }
 
+  // .then(note => note.json())
+  // .then(newNote => this.props.renderNewNote(newNote))
+
   handleChange = (event) => {
-    // debugger
     this.setState({
       [event.target.name]: event.target.value
     })
@@ -42,7 +47,7 @@ class NoteEditor extends Component {
         <input type="text" name="title" value={this.state.title} onChange={event => this.handleChange(event)}/>
         <textarea name="body"  value={this.state.body} onChange={event => this.handleChange(event)}/>
         <div className="button-row">
-          <input className="button" type="submit" value="Save" onClick={(event) => this.PatchEdit(this.props.selectedNote)}/>
+          <input className="button" type="submit" value="Save" onClick={(event) => this.patchEdit(event)}/>
           <button type="button" onClick={(event) => this.props.switchNoteEditorRenderCondition()} >Cancel</button>
         </div>
       </form>

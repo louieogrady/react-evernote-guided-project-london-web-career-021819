@@ -21,7 +21,7 @@ class Content extends Component {
     const renderCondition = !!this.props.selectedNote
 
     if (this.state.noteEditorRenderCondition === true) {
-      return <NoteEditor selectedNote={this.props.selectedNote} switchNoteEditorRenderCondition={this.switchNoteEditorRenderCondition}/>;
+      return <NoteEditor selectedNote={this.props.selectedNote} switchNoteEditorRenderCondition={this.switchNoteEditorRenderCondition} renderUpdatedNote={this.props.renderUpdatedNote} />;
     } else if (renderCondition === true) {
       return <NoteViewer selectedNote={this.props.selectedNote} switchNoteEditorRenderCondition={this.switchNoteEditorRenderCondition}/>;
     } else {

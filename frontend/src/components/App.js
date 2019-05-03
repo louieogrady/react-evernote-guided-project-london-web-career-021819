@@ -17,6 +17,22 @@ class App extends Component {
     .then(notes => this.setState({notes: notes}))
   }
 
+  renderNewNote = (newNote) => {
+    this.setState({
+      notes: [...this.state.notes, newNote]
+    })
+  }
+
+  // ensures note is rendered immediately - checks whether the updated note has the same id as one of the notes in the array and if it assigns
+  // the patched info to it, if not it keeps the details of the old notes
+  renderUpdatedNote = (newNote) => {
+    const newNotes = this.state.notes.map(note => note.id === newNote.id ? note = newNote : note )
+
+    this.setState({
+      notes: newNotes
+    })
+  }
+
   componentDidMount() {
     this.fetchNotes()
   }
@@ -40,10 +56,11 @@ class App extends Component {
     return (
       <div className="app">
         <Header />
-        <NoteContainer notes={this.state.searchTerm ? this.filteredNotes() : this.state.notes} selectNote={this.selectNote} selectedNote={this.state.selectedNote} searchInput={this.searchInput}/>
+        <NoteContainer notes={this.state.searchTerm ? this.filteredNotes() : this.state.notes} selectNote={this.selectNote} selectedNote={this.state.selectedNote} searchInput={this.searchInput} renderUpdatedNote={this.renderUpdatedNote}/>
       </div>
     );
   }
+
 }
 
 export default App;
