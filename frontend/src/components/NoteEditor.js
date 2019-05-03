@@ -5,12 +5,10 @@ class NoteEditor extends Component {
   state = {
     title: this.props.selectedNote.title,
     body: this.props.selectedNote.body,
-    //selectedNote: this.props.selectedNote
   }
 
   // patch note function
   patchEdit = (event) => {
-    debugger
     event.persist();
     event.preventDefault();
 
@@ -18,17 +16,17 @@ class NoteEditor extends Component {
       method: "PATCH",
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        id: this.props.selectedNote.id,
+        // id: this.props.selectedNote.id,
         title: this.state.title,
         body: this.state.body,
-        user: {
-          id: this.props.selectedNote.user.id,
-          name: this.props.selectedNote.name
-        }
+        user_id: this.props.selectedNote.user.id
+        // user: {
+        //   id: this.props.selectedNote.user.id,
+        //   name: this.props.selectedNote.name
+        // }
       })
     }).then(note => note.json())
     .then(newNote => this.props.renderUpdatedNote(newNote))
-
   }
 
   // .then(note => note.json())

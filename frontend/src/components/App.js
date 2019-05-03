@@ -10,7 +10,6 @@ class App extends Component {
     searchTerm: null
   }
 
-  //
   fetchNotes = () => {
     fetch('http://localhost:3000/api/v1/notes')
     .then(resp => resp.json())
@@ -56,7 +55,7 @@ class App extends Component {
     return (
       <div className="app">
         <Header />
-        <NoteContainer notes={this.state.searchTerm ? this.filteredNotes() : this.state.notes} selectNote={this.selectNote} selectedNote={this.state.selectedNote} searchInput={this.searchInput} renderUpdatedNote={this.renderUpdatedNote}/>
+        <NoteContainer notes={this.state.searchTerm ? this.filteredNotes() : this.state.notes} selectNote={this.selectNote} selectedNote={this.state.selectedNote} searchInput={this.searchInput} renderNewNote={this.renderNewNote} renderUpdatedNote={this.renderUpdatedNote}/>
       </div>
     );
   }
@@ -64,5 +63,3 @@ class App extends Component {
 }
 
 export default App;
-
-// this.state.searchTerm ? this.filteredNotes : this.state.notes
