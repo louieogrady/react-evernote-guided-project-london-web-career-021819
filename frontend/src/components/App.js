@@ -22,6 +22,27 @@ class App extends Component {
     })
   }
 
+  updateNotesAfterDelete = (noteId) => {
+  const updatedNotes = this.state.notes.filter(note => note.id !== noteId.noteId)
+
+    this.setState({
+      notes: updatedNotes
+    })
+  }
+
+  clearSelectedNote = () => {
+    this.setState({
+      selectedNote: null
+    })
+  }
+
+  sortedByTimeCreated = () => {
+    this.state.notes.sort((noteA, noteB) => {
+      if (noteA.id < noteB.id) return -1;
+      return 1;
+    })
+  }
+
   // ensures note is rendered immediately - checks whether the updated note has the same id as one of the notes in the array and if it assigns
   // the patched info to it, if not it keeps the details of the old notes
   renderUpdatedNote = (newNote) => {
@@ -57,7 +78,7 @@ class App extends Component {
     return (
       <div className="app">
         <Header />
-        <NoteContainer notes={this.state.searchTerm ? this.filteredNotes() : this.state.notes} selectNote={this.selectNote} selectedNote={this.state.selectedNote} searchInput={this.searchInput} renderNewNote={this.renderNewNote} renderUpdatedNote={this.renderUpdatedNote}/>
+        <NoteContainer notes={this.state.searchTerm ? this.filteredNotes() : this.state.notes} selectNote={this.selectNote} selectedNote={this.state.selectedNote} searchInput={this.searchInput} renderNewNote={this.renderNewNote} renderUpdatedNote={this.renderUpdatedNote} deleteNote={this.deleteNote} updateNotesAfterDelete={this.updateNotesAfterDelete} clearSelectedNote={this.clearSelectedNote} sortedByTimeCreated={this.sortedByTimeCreated}/>
       </div>
     );
   }

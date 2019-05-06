@@ -5,9 +5,9 @@ class NoteList extends Component {
   onClickEvent = () => {
     this.props.selectNote(this.props.note);
 
-    this.props.selectedNote === this.props.note ? null : this.props.switchNoteEditorRenderCondition()
+    //this.props.selectedNote === this.props.note && this.props.noteEditorRenderCondition === true ? null : this.props.switchNoteEditorRenderCondition() && this.props.clearSelectedNote() ;
   }
-  
+
   render() {
     return (
       <li onClick={() => {this.onClickEvent()}} >

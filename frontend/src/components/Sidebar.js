@@ -10,17 +10,20 @@ class Sidebar extends Component {
       body: JSON.stringify({
         title: 'new note title',
         body: 'type your note details here',
-        user_id: this.props.selectedNote.user.id
+        user_id: 1
       })
     }).then(note => note.json())
     .then(newNote => this.props.renderNewNote(newNote))
   }
 
+
+
   render() {
     return (
       <div className='master-detail-element sidebar'>
-        <NoteList selectedNote={this.props.selectedNote} notes={this.props.notes} selectNote={this.props.selectNote} switchNoteEditorRenderCondition={this.props.switchNoteEditorRenderCondition} />
-        <button onClick={() => this.createNewNote()}>New</button>
+      <button onClick={() => this.createNewNote()}>New Note</button>
+      <button onClick={() => this.props.sortedByTimeCreated()}>Sort By Time Created</button>
+      <NoteList selectedNote={this.props.selectedNote} notes={this.props.notes} selectNote={this.props.selectNote} switchNoteEditorRenderCondition={this.props.switchNoteEditorRenderCondition} noteEditorRenderCondition={this.props.noteEditorRenderCondition} clearSelectedNote={this.props.clearSelectedNote}/>
       </div>
     );
   }

@@ -18,7 +18,7 @@ class NoteEditor extends Component {
       body: JSON.stringify({
         title: this.state.title,
         body: this.state.body,
-        user_id: this.props.selectedNote.user.id
+        user_id: 1
       })
     })
     .then(note => note.json())
@@ -39,7 +39,7 @@ class NoteEditor extends Component {
         <textarea name="body"  value={this.state.body} onChange={event => this.handleChange(event)}/>
         <div className="button-row">
           <input className="button" type="submit" value="Save" onClick={(event) => this.patchEdit(event)}/>
-          <button type="button" onClick={(event) => this.props.switchNoteEditorRenderCondition()}>Cancel</button>
+          <button type="button" onClick={() => this.props.switchNoteEditorRenderCondition()}>Cancel</button>
         </div>
       </form>
     );
