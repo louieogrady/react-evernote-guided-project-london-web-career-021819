@@ -17,7 +17,7 @@ body {
 
 /* Styles */
 h2, input[name="title"], textarea {
-  font-family: 'IBM Plex Mono'
+  font-family: 'IBM Plex Mono';
 }
 
 p.instructions {
@@ -32,6 +32,7 @@ p.instructions {
   border: 1px dashed grey;
   margin: 0.5em 0;
   box-sizing: border-box;
+  padding-left: 1px
 }
 
 .note-editor textarea {
@@ -75,10 +76,15 @@ input {
   height: 40px;
   width: 100%;
   border: none;
+  /* padding-bottom: 1em;
+  padding-left: 10px;
+  border: 1px dashed grey;
+  margin: 0.5em 0;
+  box-sizing: border-box; */
 }
 
 input::placeholder {
-  padding-left: 10px;
+  padding-left: 0px;
   color: rgba(0, 0, 0, 0.55);
   font-weight: bolder;
 }

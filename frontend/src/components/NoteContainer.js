@@ -26,7 +26,7 @@ class NoteContainer extends Component {
   render() {
     return (
       <Fragment>
-        <Search searchInput={this.props.searchInput}/>
+        <Search searchInput={this.props.searchInput} searchInputBody={this.props.searchInputBody}/>
         <div className='container'>
           <Sidebar notes={this.props.notes} selectNote={this.props.selectNote} selectedNote={this.props.selectedNote} renderNewNote={this.props.renderNewNote} switchNoteEditorRenderCondition={this.switchNoteEditorRenderCondition} noteEditorRenderCondition={this.state.noteEditorRenderCondition} sortedByTimeCreated={this.props.sortedByTimeCreated} clearSelectedNote={this.props.clearSelectedNote}/>
           <Content noteEditorRenderCondition={this.state.noteEditorRenderCondition} switchNoteEditorRenderCondition={this.switchNoteEditorRenderCondition} selectedNote={this.props.selectedNote} renderUpdatedNote={this.props.renderUpdatedNote} deleteNote={this.deleteNote}/>

@@ -7,7 +7,8 @@ class App extends Component {
   state = {
     notes: [],
     selectedNote: null,
-    searchTerm: null
+    searchTerm: "",
+    searchTermBody: ""
   }
 
   fetchNotes = () => {
@@ -18,7 +19,7 @@ class App extends Component {
 
   renderNewNote = (newNote) => {
     this.setState({
-      notes: [newNote, ...this.state.notes]
+      notes: [...this.state.notes, newNote]
     })
   }
 
@@ -72,13 +73,27 @@ class App extends Component {
     })
   }
 
-  filteredNotes = () => this.state.notes.filter(note => note.title.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+  searchInputBody = (event) => {
+    this.setState({
+      searchTermBody: event.target.value
+    })
+  }
+
+  //filteredNotes = () => this.state.notes.filter(note => note.title.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+
+  filteredNotes = () => {
+    if (this.state.searchTerm !== "") {
+      return this.state.notes.filter(note => note.title.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+    } else if (this.state.searchTermBody !== "") {
+      return this.state.notes.filter(note => note.body.toLowerCase().includes(this.state.searchTermBody.toLowerCase()))
+    }
+  }
 
   render() {
     return (
       <div className="app">
         <Header />
-        <NoteContainer notes={this.state.searchTerm ? this.filteredNotes() : this.state.notes} selectNote={this.selectNote} selectedNote={this.state.selectedNote} searchInput={this.searchInput} renderNewNote={this.renderNewNote} renderUpdatedNote={this.renderUpdatedNote} deleteNote={this.deleteNote} updateNotesAfterDelete={this.updateNotesAfterDelete} clearSelectedNote={this.clearSelectedNote} sortedByTimeCreated={this.sortedByTimeCreated}/>
+        <NoteContainer notes={this.state.searchTerm || this.state.searchTermBody ? this.filteredNotes() : this.state.notes} selectNote={this.selectNote} selectedNote={this.state.selectedNote} searchInput={this.searchInput} renderNewNote={this.renderNewNote} renderUpdatedNote={this.renderUpdatedNote} deleteNote={this.deleteNote} updateNotesAfterDelete={this.updateNotesAfterDelete} clearSelectedNote={this.clearSelectedNote} sortedByTimeCreated={this.sortedByTimeCreated} searchInputBody={this.searchInputBody}/>
       </div>
     );
   }
