@@ -21,7 +21,7 @@ class NoteList extends Component {
     return (
       <li onClick={() => {this.onClickEvent()}} >
         <h2>{this.props.note.title}</h2>
-        <p> {this.props.note.body.length > 30 ? this.props.note.body.substring(0, 38) + "..." : this.props.note.body}</p>
+        <p> {this.props.note.body.length > 30 ? this.props.note.body.substring(0, 30) + "..." : this.props.note.body}</p>
       </li>
     );
   }

@@ -109,7 +109,7 @@ div.sidebar ul li:first-child {
 
 div.sidebar ul li:hover {
   /* background-color: yellow; */
-  background-image: linear-gradient(#E6E6E6, #F7F7F7);
+  background-image: linear-gradient(orange, #F7F7F7);
   background-repeat: no-repeat;
 }
 
@@ -181,10 +181,15 @@ button, input[type="submit"] {
 }
 
 button:hover, .nav-bar:hover, input[type="submit"]:hover {
-  background-image: linear-gradient(to right top, navy, pink 45%, yellow);
+  background-image: linear-gradient(to right top, cyan, pink 40%, coral);
   background-repeat: no-repeat;
 }
 
 button:focus, input[type="submit"]:focus {
   outline: none;
+}
+
+button:hover, .new:hover, input[type="new"]:hover {
+  background-image: linear-gradient(to right top, cyan, pink 40%, coral);
+  background-repeat: no-repeat;
 }
