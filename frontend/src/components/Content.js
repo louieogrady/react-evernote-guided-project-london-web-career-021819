@@ -6,16 +6,6 @@ import Instructions from './Instructions';
 
 class Content extends Component {
 
-  // state = {
-  //   noteEditorRenderCondition: false
-  // }
-  //
-  // switchNoteEditorRenderCondition = () => {
-  //   this.setState({
-  //     noteEditorRenderCondition: !this.state.noteEditorRenderCondition
-  //   });
-  // };
-
   renderContent = () => {
 
     const renderCondition = !!this.props.selectedNote

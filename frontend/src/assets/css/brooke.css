@@ -43,12 +43,13 @@ p.instructions {
 
 .nav-bar {
   width: 100%;
-  background-image: linear-gradient(to right top, #8C33E3, #696CE8, #4A9EEC);
+  background-image: linear-gradient(135deg, orange, orange 60%, cyan);
   background-repeat: no-repeat;
   font-family: 'IBM Plex Mono';
-  font-size: 16px;
-  letter-spacing: 1.5px;
+  font-size: 36px;
+  letter-spacing: 7px;
   font-weight: bolder;
+  font
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -85,10 +86,12 @@ input::placeholder {
 
 div.sidebar button {
   width: 100%;
+  margin: 1px;
+  background-image: linear-gradient(135deg, orange, orange 60%, cyan)
 }
 
 div.sidebar ul {
-  margin: 0 0 20px 0;
+  margin: 5px 0 20px 0;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -97,7 +100,7 @@ div.sidebar ul {
 div.sidebar ul li {
   list-style: none;
   border-bottom: 1px solid grey;
-  padding: 0 5px;
+  padding: 0 2px;
 }
 
 div.sidebar ul li:first-child {
@@ -170,7 +173,7 @@ button, input[type="submit"] {
   margin-right: 10px;
   padding: 5px 35px;
   border: 0px;
-  background-image: linear-gradient(to right top, #8C33E3, #696CE8, #4A9EEC);
+  background-image: linear-gradient(135deg, orange, orange 60%, cyan);
   background-repeat: no-repeat;
   color: white;
   font-size: 14px;
@@ -178,7 +181,7 @@ button, input[type="submit"] {
 }
 
 button:hover, .nav-bar:hover, input[type="submit"]:hover {
-  background-image: linear-gradient(to right top, #8A2387, #E94057, #F27121);
+  background-image: linear-gradient(to right top, navy, pink 45%, yellow);
   background-repeat: no-repeat;
 }
 

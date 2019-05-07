@@ -38,7 +38,7 @@ class App extends Component {
 
   sortedByTimeCreated = () => {
     this.state.notes.sort((noteA, noteB) => {
-      if (noteA.id < noteB.id) return -1;
+      if (noteA.id > noteB.id) return -1;
       return 1;
     })
   }
