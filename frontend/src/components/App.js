@@ -23,8 +23,8 @@ class App extends Component {
     })
   }
 
-  updateNotesAfterDelete = (noteId) => {
-  const updatedNotes = this.state.notes.filter(note => note.id !== noteId.noteId)
+  updateNotesAfterDelete = (deletedNote) => {
+  const updatedNotes = this.state.notes.filter(note => note.id !== deletedNote.noteId)
 
     this.setState({
       notes: updatedNotes
@@ -79,8 +79,8 @@ class App extends Component {
     })
   }
 
-  //filteredNotes = () => this.state.notes.filter(note => note.title.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
 
+  //filteredNotes = () => this.state.notes.filter(note => note.title.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
   filteredNotes = () => {
     if (this.state.searchTerm !== "") {
       return this.state.notes.filter(note => note.title.toLowerCase().includes(this.state.searchTerm.toLowerCase()))

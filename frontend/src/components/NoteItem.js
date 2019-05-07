@@ -2,8 +2,8 @@ import React, { Component } from "react";
 
 class NoteList extends Component {
 
-  onClickEvent = () => {
-    this.props.selectNote(this.props.note);
+  onClickEventHandler = () => {
+    //this.props.selectNote(this.props.note);
 
     if (this.props.selectedNote === this.props.note) {
       return null
@@ -13,13 +13,12 @@ class NoteList extends Component {
     else {
       this.props.selectNote(this.props.note);
     }
-
     //this.props.selectedNote === this.props.note && this.props.noteEditorRenderCondition === true ? null : this.props.switchNoteEditorRenderCondition() && this.props.clearSelectedNote() ;
   }
 
   render() {
     return (
-      <li onClick={() => {this.onClickEvent()}} >
+      <li onClick={() => {this.onClickEventHandler()}} >
         <h2>{this.props.note.title}</h2>
         <p> {this.props.note.body.length > 30 ? this.props.note.body.substring(0, 30) + "..." : this.props.note.body}</p>
       </li>
@@ -28,7 +27,3 @@ class NoteList extends Component {
 }
 
 export default NoteList;
-
-
-
-// onClick={(event) => this.props.switchNoteEditorRenderCondition()}
