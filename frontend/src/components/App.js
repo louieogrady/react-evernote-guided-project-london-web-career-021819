@@ -18,7 +18,7 @@ class App extends Component {
 
   renderNewNote = (newNote) => {
     this.setState({
-      notes: [...this.state.notes, newNote]
+      notes: [newNote, ...this.state.notes]
     })
   }
 

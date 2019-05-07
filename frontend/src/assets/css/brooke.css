@@ -47,9 +47,8 @@ p.instructions {
   background-repeat: no-repeat;
   font-family: 'IBM Plex Mono';
   font-size: 36px;
-  letter-spacing: 7px;
+  letter-spacing: 20px;
   font-weight: bolder;
-  font
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -68,7 +67,7 @@ p.instructions {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  border: 2px dashed grey;
+  border: 2px dotted grey;
 }
 
 input {
@@ -109,7 +108,7 @@ div.sidebar ul li:first-child {
 
 div.sidebar ul li:hover {
   /* background-color: yellow; */
-  background-image: linear-gradient(orange, #F7F7F7);
+  background-image: linear-gradient(#FFE5CC, #F7F7F7);
   background-repeat: no-repeat;
 }
 
@@ -133,8 +132,8 @@ div.sidebar ul li:hover {
 .master-detail-element {
   float:left;
   margin: 10px 0px;
-  padding: 20px;
-  border: 2px dashed grey;
+  padding: 8px 20px 20px 20px;
+  border: 2px dotted grey;
 }
 
 .sidebar {
@@ -143,7 +142,7 @@ div.sidebar ul li:hover {
 }
 
 .detail {
-  width:75%;
+  width:80%;
 }
 
 .note-editor {
