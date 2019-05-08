@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class NoteList extends Component {
 
   onClickEventHandler = () => {
-    //this.props.selectNote(this.props.note);
+    this.props.selectNote(this.props.note);
 
     if (this.props.selectedNote === this.props.note) {
       return null
