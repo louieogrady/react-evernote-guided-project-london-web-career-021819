@@ -7,7 +7,7 @@ const Search = (props) => {
       <input
         id="search-bar"
         type="text"
-        placeholder="Search Note Title"
+        placeholder="Search Task Title"
         onChange={(event) => {props.searchInput(event)}}
       />
     </div>
@@ -15,7 +15,7 @@ const Search = (props) => {
       <input
         id="search-bar"
         type="text"
-        placeholder="Search Note Body"
+        placeholder="Search Task Body"
         onChange={(event) => {props.searchInputBody(event)}}
       />
     </div>

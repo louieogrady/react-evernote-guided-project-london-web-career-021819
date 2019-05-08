@@ -8,7 +8,8 @@ class App extends Component {
     notes: [],
     selectedNote: null,
     searchTerm: "",
-    searchTermBody: ""
+    searchTermBody: "",
+    orderToggle: false
   }
 
   fetchNotes = () => {
@@ -37,10 +38,29 @@ class App extends Component {
     })
   }
 
+  toggleSortOrder = () => {
+    this.setState({
+      orderToggle: !this.state.orderToggle
+    })
+
+    this.sortedByTimeCreated()
+  }
+
   sortedByTimeCreated = () => {
-    this.state.notes.sort((noteA, noteB) => {
-      if (noteA.id > noteB.id) return -1;
-      return 1;
+    const notesCopy = [...this.state.notes]
+
+    if (this.state.orderToggle) {
+      notesCopy.sort((noteA, noteB) => {
+        if (noteA.created_at > noteB.created_at) return -1; return 1;
+      })
+    } else {
+      notesCopy.sort((noteA, noteB) => {
+        if (noteA.created_at < noteB.created_at) return -1; return 1;
+      })
+    }
+
+    this.setState({
+      notes: notesCopy
     })
   }
 
@@ -93,7 +113,7 @@ class App extends Component {
     return (
       <div className="app">
         <Header />
-        <NoteContainer notes={this.state.searchTerm || this.state.searchTermBody ? this.filteredNotes() : this.state.notes} selectNote={this.selectNote} selectedNote={this.state.selectedNote} searchInput={this.searchInput} renderNewNote={this.renderNewNote} renderUpdatedNote={this.renderUpdatedNote} deleteNote={this.deleteNote} updateNotesAfterDelete={this.updateNotesAfterDelete} clearSelectedNote={this.clearSelectedNote} sortedByTimeCreated={this.sortedByTimeCreated} searchInputBody={this.searchInputBody}/>
+        <NoteContainer notes={this.state.searchTerm || this.state.searchTermBody ? this.filteredNotes() : this.state.notes} selectNote={this.selectNote} selectedNote={this.state.selectedNote} searchInput={this.searchInput} renderNewNote={this.renderNewNote} renderUpdatedNote={this.renderUpdatedNote} deleteNote={this.deleteNote} updateNotesAfterDelete={this.updateNotesAfterDelete} clearSelectedNote={this.clearSelectedNote} sortedByTimeCreated={this.sortedByTimeCreated} searchInputBody={this.searchInputBody} toggleSortOrder={this.toggleSortOrder}/>
       </div>
     );
   }

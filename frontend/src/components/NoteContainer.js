@@ -19,7 +19,7 @@ class NoteContainer extends Component {
     fetch(`http://localhost:3000/api/v1/notes/${noteToDeleteId}`, {
       method: "DELETE"
     }).then(resp => resp.json())
-    .then(note => this.props.updateNotesAfterDelete(note))
+    .then(deletedNote => this.props.updateNotesAfterDelete(deletedNote))
     .then(this.props.clearSelectedNote)
   }
 
@@ -28,7 +28,7 @@ class NoteContainer extends Component {
       <Fragment>
         <Search searchInput={this.props.searchInput} searchInputBody={this.props.searchInputBody}/>
         <div className='container'>
-          <Sidebar notes={this.props.notes} selectNote={this.props.selectNote} selectedNote={this.props.selectedNote} renderNewNote={this.props.renderNewNote} switchNoteEditorRenderCondition={this.switchNoteEditorRenderCondition} noteEditorRenderCondition={this.state.noteEditorRenderCondition} sortedByTimeCreated={this.props.sortedByTimeCreated} clearSelectedNote={this.props.clearSelectedNote}/>
+          <Sidebar notes={this.props.notes} selectNote={this.props.selectNote} selectedNote={this.props.selectedNote} renderNewNote={this.props.renderNewNote} switchNoteEditorRenderCondition={this.switchNoteEditorRenderCondition} noteEditorRenderCondition={this.state.noteEditorRenderCondition} sortedByTimeCreated={this.props.sortedByTimeCreated} clearSelectedNote={this.props.clearSelectedNote} toggleSortOrder={this.props.toggleSortOrder}/>
           <Content noteEditorRenderCondition={this.state.noteEditorRenderCondition} switchNoteEditorRenderCondition={this.switchNoteEditorRenderCondition} selectedNote={this.props.selectedNote} renderUpdatedNote={this.props.renderUpdatedNote} deleteNote={this.deleteNote}/>
         </div>
       </Fragment>

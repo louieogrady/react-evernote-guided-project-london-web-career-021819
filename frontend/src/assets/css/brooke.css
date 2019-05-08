@@ -198,3 +198,8 @@ button:hover, .new:hover, input[type="new"]:hover {
   background-image: linear-gradient(to right top, cyan, pink 40%, coral);
   background-repeat: no-repeat;
 }
+
+button:hover, .sortByTime:hover, input[type="sortByTime"]:hover {
+  background-image: linear-gradient(to right top, cyan, pink 40%, coral);
+  background-repeat: no-repeat;
+}
