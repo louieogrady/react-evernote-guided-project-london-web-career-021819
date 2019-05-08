@@ -113,6 +113,18 @@ class App extends Component {
     })
   }
 
+  sortByUpdate = () => {
+    const updatedNotes = [...this.state.notes]
+
+    updatedNotes.sort((noteA, noteB) => {
+      if (noteA.updated_at > noteB.updated_at) return -1; return 1;
+    });
+
+    this.setState({
+      notes: updatedNotes
+    })
+  }
+
 
   //filteredNotes = () => this.state.notes.filter(note => note.title.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
   filteredNotes = () => {
@@ -127,7 +139,7 @@ class App extends Component {
     return (
       <div className="app">
         <Header />
-        <NoteContainer notes={this.state.searchTerm || this.state.searchTermBody ? this.filteredNotes() : this.state.notes} selectNote={this.selectNote} selectedNote={this.state.selectedNote} searchInput={this.searchInput} renderNewNote={this.renderNewNote} renderUpdatedNote={this.renderUpdatedNote} deleteNote={this.deleteNote} updateNotesAfterDelete={this.updateNotesAfterDelete} clearSelectedNote={this.clearSelectedNote} sortedByTimeCreated={this.sortedByTimeCreated} searchInputBody={this.searchInputBody} toggleSortOrder={this.toggleSortOrder} sortByAlpha={this.sortByAlpha}/>
+        <NoteContainer notes={this.state.searchTerm || this.state.searchTermBody ? this.filteredNotes() : this.state.notes} selectNote={this.selectNote} selectedNote={this.state.selectedNote} searchInput={this.searchInput} renderNewNote={this.renderNewNote} renderUpdatedNote={this.renderUpdatedNote} deleteNote={this.deleteNote} updateNotesAfterDelete={this.updateNotesAfterDelete} clearSelectedNote={this.clearSelectedNote} sortedByTimeCreated={this.sortedByTimeCreated} searchInputBody={this.searchInputBody} toggleSortOrder={this.toggleSortOrder} sortByUpdate={this.sortByUpdate} sortByAlpha={this.sortByAlpha}/>
       </div>
     );
   }

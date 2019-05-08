@@ -28,7 +28,7 @@ class NoteContainer extends Component {
       <Fragment>
         <Search searchInput={this.props.searchInput} searchInputBody={this.props.searchInputBody}/>
         <div className='container'>
-          <Sidebar notes={this.props.notes} selectNote={this.props.selectNote} selectedNote={this.props.selectedNote} renderNewNote={this.props.renderNewNote} switchNoteEditorRenderCondition={this.switchNoteEditorRenderCondition} noteEditorRenderCondition={this.state.noteEditorRenderCondition} sortedByTimeCreated={this.props.sortedByTimeCreated} clearSelectedNote={this.props.clearSelectedNote} toggleSortOrder={this.props.toggleSortOrder} sortByAlpha={this.props.sortByAlpha}/>
+          <Sidebar notes={this.props.notes} selectNote={this.props.selectNote} selectedNote={this.props.selectedNote} renderNewNote={this.props.renderNewNote} switchNoteEditorRenderCondition={this.switchNoteEditorRenderCondition} noteEditorRenderCondition={this.state.noteEditorRenderCondition} sortedByTimeCreated={this.props.sortedByTimeCreated} clearSelectedNote={this.props.clearSelectedNote} toggleSortOrder={this.props.toggleSortOrder} sortByAlpha={this.props.sortByAlpha} sortByUpdate={this.props.sortByUpdate}/>
           <Content noteEditorRenderCondition={this.state.noteEditorRenderCondition} switchNoteEditorRenderCondition={this.switchNoteEditorRenderCondition} selectedNote={this.props.selectedNote} renderUpdatedNote={this.props.renderUpdatedNote} deleteNote={this.deleteNote}/>
         </div>
       </Fragment>

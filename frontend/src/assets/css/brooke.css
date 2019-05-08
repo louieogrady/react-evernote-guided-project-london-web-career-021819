@@ -208,3 +208,8 @@ button:hover, .sortByName:hover, input[type="sortByName"]:hover {
   background-image: linear-gradient(to right top, cyan, pink 40%, coral);
   background-repeat: no-repeat;
 }
+
+button:hover, .sortByUpdate:hover, input[type="sortByUpdate"]:hover {
+  background-image: linear-gradient(to right top, cyan, pink 40%, coral);
+  background-repeat: no-repeat;
+}
