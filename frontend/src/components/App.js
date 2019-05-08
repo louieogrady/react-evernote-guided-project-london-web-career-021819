@@ -64,6 +64,8 @@ class App extends Component {
     })
   }
 
+
+
   // ensures note is rendered immediately - checks whether the updated note has the same id as one of the notes in the array and if it assigns
   // the patched info to it, if not it keeps the details of the old notes
   renderUpdatedNote = (newNote) => {
@@ -99,6 +101,18 @@ class App extends Component {
     })
   }
 
+  sortByAlpha = () => {
+    const updatedNotes = [...this.state.notes]
+
+    updatedNotes.sort((noteA, noteB) => {
+      if (noteA.title.toLowerCase() < noteB.title.toLowerCase()) return -1; return 1;
+    });
+
+    this.setState({
+      notes: updatedNotes
+    })
+  }
+
 
   //filteredNotes = () => this.state.notes.filter(note => note.title.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
   filteredNotes = () => {
@@ -113,7 +127,7 @@ class App extends Component {
     return (
       <div className="app">
         <Header />
-        <NoteContainer notes={this.state.searchTerm || this.state.searchTermBody ? this.filteredNotes() : this.state.notes} selectNote={this.selectNote} selectedNote={this.state.selectedNote} searchInput={this.searchInput} renderNewNote={this.renderNewNote} renderUpdatedNote={this.renderUpdatedNote} deleteNote={this.deleteNote} updateNotesAfterDelete={this.updateNotesAfterDelete} clearSelectedNote={this.clearSelectedNote} sortedByTimeCreated={this.sortedByTimeCreated} searchInputBody={this.searchInputBody} toggleSortOrder={this.toggleSortOrder}/>
+        <NoteContainer notes={this.state.searchTerm || this.state.searchTermBody ? this.filteredNotes() : this.state.notes} selectNote={this.selectNote} selectedNote={this.state.selectedNote} searchInput={this.searchInput} renderNewNote={this.renderNewNote} renderUpdatedNote={this.renderUpdatedNote} deleteNote={this.deleteNote} updateNotesAfterDelete={this.updateNotesAfterDelete} clearSelectedNote={this.clearSelectedNote} sortedByTimeCreated={this.sortedByTimeCreated} searchInputBody={this.searchInputBody} toggleSortOrder={this.toggleSortOrder} sortByAlpha={this.sortByAlpha}/>
       </div>
     );
   }

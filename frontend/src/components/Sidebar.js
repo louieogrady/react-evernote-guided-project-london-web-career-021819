@@ -21,8 +21,9 @@ class Sidebar extends Component {
   render() {
     return (
       <div className='master-detail-element sidebar'>
-      <button className="new" type="new" onClick={() => this.createNewNote()}>Create New Note</button>
-      <button className="sortByTime" type="sortByTime" onClick={this.props.toggleSortOrder}>Sort Order By Date </button>
+      <button className="new" type="new" onClick={() => this.createNewNote()}>Create New Task</button>
+      <button className="sortByTime" type="sortByTime" onClick={this.props.toggleSortOrder}>Sort By Date (Asc/Desc) </button>
+      <button className="sortByName" type="sortByName" onClick={this.props.sortByAlpha}>Sort Titles A-Z </button>
       <NoteList selectedNote={this.props.selectedNote} notes={this.props.notes} selectNote={this.props.selectNote} switchNoteEditorRenderCondition={this.props.switchNoteEditorRenderCondition} noteEditorRenderCondition={this.props.noteEditorRenderCondition} clearSelectedNote={this.props.clearSelectedNote}/>
       </div>
     );

@@ -203,3 +203,8 @@ button:hover, .sortByTime:hover, input[type="sortByTime"]:hover {
   background-image: linear-gradient(to right top, cyan, pink 40%, coral);
   background-repeat: no-repeat;
 }
+
+button:hover, .sortByName:hover, input[type="sortByName"]:hover {
+  background-image: linear-gradient(to right top, cyan, pink 40%, coral);
+  background-repeat: no-repeat;
+}
