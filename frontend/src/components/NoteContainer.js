@@ -34,6 +34,7 @@ class NoteContainer extends Component {
       </Fragment>
     );
   }
+
 }
 
 export default NoteContainer;

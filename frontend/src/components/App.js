@@ -64,8 +64,6 @@ class App extends Component {
     })
   }
 
-
-
   // ensures note is rendered immediately - checks whether the updated note has the same id as one of the notes in the array and if it assigns
   // the patched info to it, if not it keeps the details of the old notes
   renderUpdatedNote = (newNote) => {
@@ -75,7 +73,6 @@ class App extends Component {
       notes: newNotes,
       selectedNote: newNote   // this adds the newNote into the selectedNote so that when the re-render happens (and the conditional rendering is switched) the new note is shown rather than the old one
     })
-
   }
 
   componentDidMount() {

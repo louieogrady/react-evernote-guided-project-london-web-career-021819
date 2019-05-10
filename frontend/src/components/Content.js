@@ -12,7 +12,7 @@ class Content extends Component {
 
     if (this.props.noteEditorRenderCondition === true) {
       return <NoteEditor selectedNote={this.props.selectedNote} switchNoteEditorRenderCondition={this.props.switchNoteEditorRenderCondition} renderUpdatedNote={this.props.renderUpdatedNote} />;
-    } else if (renderCondition === true ) {
+    } else if (renderCondition === true) {
       return <NoteViewer selectedNote={this.props.selectedNote} switchNoteEditorRenderCondition={this.props.switchNoteEditorRenderCondition} deleteNote={this.props.deleteNote}/>;
     } else {
       return <Instructions />;

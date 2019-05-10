@@ -166,6 +166,7 @@ div.sidebar ul li:hover {
 }
 
 
+
 /* Button Style */
 input[type="submit"] {
   height: auto;
@@ -194,22 +195,40 @@ button:focus, input[type="submit"]:focus {
   outline: none;
 }
 
+.new {
+  margin: 8px 0px 12px 0px !important;
+  /* background-image: linear-gradient(135deg, orange, orange 25%, cyan) */
+}
+
+/* .sortByTime {
+  background-image: linear-gradient(135deg, orange, orange 43%, cyan)
+}
+
+.sortByName {
+  background-image: linear-gradient(135deg, orange, orange 53%, cyan)
+} */
+
+.sortByUpdate {
+  margin: 0px 0px 12px 0px !important;
+  /* background-image: linear-gradient(135deg, orange, orange 62%, cyan) */
+}
+
 button:hover, .new:hover, input[type="new"]:hover {
   background-image: linear-gradient(to right top, cyan, pink 40%, coral);
   background-repeat: no-repeat;
 }
 
 button:hover, .sortByTime:hover, input[type="sortByTime"]:hover {
-  background-image: linear-gradient(to right top, cyan, pink 40%, coral);
+  background-image: linear-gradient(to right top, cyan, pink 60%, coral);
   background-repeat: no-repeat;
 }
 
 button:hover, .sortByName:hover, input[type="sortByName"]:hover {
-  background-image: linear-gradient(to right top, cyan, pink 40%, coral);
+  background-image: linear-gradient(to right top, cyan, pink 80%, coral);
   background-repeat: no-repeat;
 }
 
 button:hover, .sortByUpdate:hover, input[type="sortByUpdate"]:hover {
-  background-image: linear-gradient(to right top, cyan, pink 40%, coral);
+  background-image: linear-gradient(to right top, cyan, pink 100%, coral);
   background-repeat: no-repeat;
 }
