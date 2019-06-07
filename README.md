@@ -11,11 +11,24 @@ Features:
 
 ## Getting Started
 
-In the frontend directory, you can run:
+Fork and clone this repository.
 
-# npm install
-to bundle... then
+In the backend directory 
 
-# npm start
-To run the app in the development mode.
+Setup the rails database and load the seed data:
+
+```rails db:create```
+
+```rails db:migrate```
+
+```rails db:seed```
+
+Start the rails server. The frontend will default to localhost/3000 so use -p flag to select a different port:
+
+```rails s -p 3002```
+
+
+
+In the frontend directory, you can run: ```npm install``` to bundle and then ```npm start``` to run the app in the development mode.
+
 Open http://localhost:3000 to view it in the browser.
