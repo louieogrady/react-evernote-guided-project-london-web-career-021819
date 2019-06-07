@@ -13,7 +13,7 @@ Features:
 
 Fork and clone this repository.
 
-In the backend directory 
+#### In the backend directory 
 
 Setup the rails database and load the seed data:
 
@@ -28,7 +28,7 @@ Start the rails server. The frontend will default to localhost/3000 so use -p fl
 ```rails s -p 3002```
 
 
-
-In the frontend directory, you can run: ```npm install``` to bundle and then ```npm start``` to run the app in the development mode.
+#### In the frontend directory 
+you can run: ```npm install``` to bundle and then ```npm start``` to run the app in the development mode.
 
 Open http://localhost:3000 to view it in the browser.
