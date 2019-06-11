@@ -23,12 +23,10 @@ Setup the rails database and load the seed data:
 
 ```rails db:seed```
 
-Start the rails server. The frontend will default to localhost/3000 so use -p flag to select a different port:
+Start the rails server.
 
-```rails s -p 3002```
+```rails s```
 
 
 #### In the frontend directory 
 you can run: ```npm install``` to bundle and then ```npm start``` to run the app in the development mode.
-
-Open http://localhost:3000 to view it in the browser.
