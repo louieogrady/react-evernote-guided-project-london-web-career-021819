@@ -8,6 +8,7 @@ Features:
 - Users can sort tasks alphabetically, by date created and last updated.
 - Users can filter tasks by either title or body of tasks
 
+![](ezgif-3-3a1d40f0d822.gif)
 
 ## Getting Started
 
@@ -31,4 +32,4 @@ Start the rails server.
 #### In the frontend directory 
 you can run: ```npm install``` to bundle and then ```npm start``` to run the app in the development mode.
 
-![](ezgif-3-3a1d40f0d822.gif)
+
